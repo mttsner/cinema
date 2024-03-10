@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:h2:mem:cinema}
+
+    url: ${JDBC_DATABASE_URL:jdbc:h2:file:./data/cinema}
     username: ${JDBC_DATABASE_USERNAME:sa}
     password: ${JDBC_DATABASE_PASSWORD:}
     dbcp2:
