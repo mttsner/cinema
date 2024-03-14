@@ -36,35 +36,6 @@ public class HomeController {
         return "home/tickets";
     }
 
-    @GetMapping("/schedule")
-    public String schedule(Model model) {
-        LocalDate today = LocalDate.now();
-        // Calculate dates for each day in the week for the navigation menu
-        List<LocalDate> dates = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
-            dates.add(today.plusDays(i));
-        }
-        model.addAttribute("dates", dates);
-        // Format date names in estonian for the navigation menu
-        DateTimeFormatter locale = DateTimeFormatter.ofPattern("E", Locale.forLanguageTag("et"));
-        model.addAttribute("locale", locale);
-        // Find all schedule items for today
-        model.addAttribute("schedule", scheduleRepository.findByDate(today));
-        // Render page
-        return "schedule/index";
-    }
-
-    @PostMapping("/filter")
-    public String filter(@RequestParam(required = false) List<Genre> genres,
-                         @RequestParam(required = false) List<AgeRating> ages,
-                         @RequestParam(required = false) List<Language> languages,
-                         @RequestParam(required = false) List<String> times,
-                         @RequestParam LocalDate date,
-                         Model model) {
-        model.addAttribute("schedule", scheduleRepository.findByFilters(date, genres, ages, languages, times));
-        return "schedule/index::items";
-    }
-
     @PostMapping("/buy")
     public String buy(@RequestParam Integer session,
                       @RequestParam int[] seat) {
