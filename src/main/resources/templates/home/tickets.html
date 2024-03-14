@@ -8,14 +8,14 @@
 <body>
 <div layout:fragment="content" class="flex items-center flex-col">
     <h1 class="grow text-3xl md:text-4xl font-medium mb-8">Vali piletid</h1>
-    <form action="/test" method="get" class="max-w-prose w-full flex flex-col">
+    <form action="/seats" method="get" class="max-w-prose w-full flex flex-col">
         <div class="grid divide-y">
             <th:block th:replace="components/ticket.html :: ticket(name='Tavapilet', type='adult', price='9.99 €')"/>
             <th:block th:replace="components/ticket.html :: ticket(name='Õpilasepilet', type='student', price='7.99 €')"/>
             <th:block th:replace="components/ticket.html :: ticket(name='Lapsepilet', type='child', price='5.99 €')"/>
         </div>
         <input th:value="${event}" name="session" type="hidden"/> <!--Persist session for the next page-->
-        <button type="submit" class="self-end mr-0 mt-4 ring-offset-background m-2 focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md bg-red-500 px-4 py-2 text-lg font-medium text-red-50 transition-colors hover:bg-red-600/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+        <button type="submit" class="btn self-end mr-0 mt-4">
             Vali istekohad
         </button>
     </form>
