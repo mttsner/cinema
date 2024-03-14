@@ -1,50 +1,60 @@
 package mttsner.cinema.schedule;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.*;
+
 import java.time.OffsetDateTime;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
-import mttsner.cinema.movies.Movies;
+import mttsner.cinema.movies.Movie;
+
 
 
 @Entity
 @Getter
 @Setter
 public class Schedule {
-
     @Id
     @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer sessionId;
 
-    @Column
+    @Column(nullable = false)
     private OffsetDateTime startTime;
 
-    @Column
+    @Column(nullable = false)
     private String maxSeats;
 
-    @Column
+    @Column(nullable = false)
     private Integer freeSeats;
 
     @ManyToOne()
     @JoinColumn(name = "movie_id", nullable = false)
-    private Movies movieId;
+    private Movie movieId;
 
+    @Column(nullable = false)
+    private Integer Rows;
+
+    @Column(nullable = false)
+    private Integer Columns;
+
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<SeatStatus> seats;
+
+    @Version
+    private Long version;
+
+    public int getSeadId(int row, int column) {
+        return row * this.Columns + column;
+    }
+
+    public SeatStatus getSeat(int row, int column) {
+        return this.seats.get(getSeadId(row, column));
+    }
+
+    public void setSeat(int row, int column, SeatStatus status) {
+        this.seats.set(getSeadId(row, column), status);
+    }
 }
