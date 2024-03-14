@@ -1,0 +1,17 @@
+<div th:fragment="movieCard(movie, event)" class="my-2 overflow-hidden rounded-lg border shadow-sm">
+    <div class="grid grid-cols-3 h-40 bg-neutral-50">
+        <div class="bg-amber-400 hidden sm:block"></div>
+        <div class="flex flex-col m-3 pr-1 mr-2 overflow-y-scroll col-span-3 sm:col-span-2 gap-1">
+            <h3 th:text="${movie.title}" class="text-2xl font-semibold tracking-tight whitespace-nowrap">Title</h3>
+            <p th:text="${movie.description}" class="text-sm">Description</p>
+        </div>
+    </div>
+    <div class="flex h-full items-center justify-between bg-zinc-900">
+        <div th:text="${#temporals.format(event.startTime, 'HH:mm')}" class="p-2 text-4xl font-semibold text-zinc-100">00:00</div>
+        <div class="mr-auto">
+            <div class="text-xs text-zinc-400">Vabu kohti:</div>
+            <div th:text="${event.freeSeats}+'/'+${event.maxSeats}" class="text-sm text-zinc-100">0/0</div>
+        </div>
+        <a th:href="@{/tickets(session=${event.sessionId})}" class="ring-offset-background m-2 focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md bg-red-500 px-4 py-2 text-lg font-medium text-red-50 transition-colors hover:bg-red-600/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">Osta pilet</a>
+    </div>
+</div>

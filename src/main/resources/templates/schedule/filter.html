@@ -1,0 +1,88 @@
+<!-- Filter category button with the popover menu -->
+<div th:fragment="category(values, name, text,  options)" class="group flex justify-center w-full">
+    <button type="button" class="p-2" th:text="${text}">Name</button>
+    <div class="hidden group-hover:block absolute z-10 left-0 top-full w-full">
+        <div class="grid grid-cols-4 w-full bg-neutral-900 rounded-md p-3 gap-4 font-normal text-base mt-1">
+            <div th:each="value, stat : ${values}" class="inline-flex items-center gap-2">
+                <input type="checkbox" th:name="${name}" th:id="${value}"
+                       th:value="${value}"
+                       class="checkbox">
+                <label th:text="${options[stat.index]}" th:for="${value}">Option</label>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Filter options -->
+<!-- NOTE: options must be in the same order as respective enum fields -->
+<form th:fragment="filter" hx-post="/filter" hx-trigger="change" hx-swap="outerHTML" hx-target="#schedule" class="w-full">
+    <th:block th:replace="~{schedule/days::days}"/>
+    <div class="w-full bg-neutral-900 text-neutral-100 font-medium flex relative rounded-md text-xl">
+    <th:block th:with="type=${T(mttsner.cinema.movies.Genre)}">
+        <th:block
+            th:replace="~{::category(
+                values=${type.values()},
+                name='genres',
+                text='Žanrid',
+                options = ${ {
+                    'Kogupere',
+                    'Draama',
+                    'Animatsioon',
+                    'Komöödia',
+                    'Dokumentaal',
+                    'Märul',
+                    'Fantaasia',
+                    'Õudus'
+                } }
+            )}"
+        />
+    </th:block>
+    <th:block th:with="type=${T(mttsner.cinema.movies.AgeRating)}">
+        <th:block
+            th:replace="~{::category(
+                values=${type.values()},
+                name='ages',
+                text='Vanusepiirang',
+                options = ${ {'Kogupere','14+','12+'} }
+            )}"
+        />
+    </th:block>
+    <th:block th:with="type=${T(mttsner.cinema.movies.Language)}">
+        <th:block
+            th:replace="~{::category(
+                values=${type.values()},
+                name='languages',
+                text='Keel',
+                options = ${ {'Eesti', 'Inglise', 'Vene'} }
+            )}"
+        />
+    </th:block>
+    <th:block th:with="values=${ {
+                    '08:00',
+                    '09:00',
+                    '10:00',
+                    '11:00',
+                    '12:00',
+                    '13:00',
+                    '14:00',
+                    '15:00',
+                    '16:00',
+                    '17:00',
+                    '18:00',
+                    '19:00',
+                    '20:00',
+                    '21:00',
+                    '22:00',
+                    '23:00'
+                } }">
+        <th:block
+            th:replace="~{::category(
+                values=${values},
+                name='times',
+                text='Algus',
+                options = ${values}
+            )}"
+        />
+    </th:block>
+    </div>
+</form>

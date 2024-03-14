@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Schedule</title>
+</head>
+<body>
+<div layout:fragment="content" class="flex flex-col items-center">
+    <div class="flex items-center flex-col max-w-prose w-full">
+        <th:block th:replace="~{schedule/filter.html :: filter}"></th:block>
+        <div th:fragment="items" id="schedule" class="w-full">
+            <th:block th:each="event: ${schedule}">
+                <th:block th:replace="components/card.html :: movieCard(movie=${event.movieId}, event=${event})"/>
+            </th:block>
+        </div>
+    </div>
+</div>
+</body>
+</html>

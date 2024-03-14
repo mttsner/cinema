@@ -1,0 +1,6 @@
+<div th:fragment="days" class="w-full overflow-hidden my-1 bg-neutral-900 text-neutral-100 font-medium flex relative rounded-md text-xl">
+    <label th:each="date, stat : ${dates}" class="w-full p-1.5 has-[:checked]:text-red-500 text-2xl font-semibold flex justify-center hover:bg-neutral-800 transition-colors">
+        <input th:checked="${stat.index == 0}" th:value="${date}" type="radio" class="hidden" name="date">
+        <th:block th:text="${locale.format(date.getDayOfWeek())}"/>
+    </label>
+</div>
