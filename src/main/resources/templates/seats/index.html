@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Test</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    <div layout:fragment="content" class="flex items-center flex-col">
+        <form action="/buy" method="post" class="flex flex-col">
+            <th:block th:replace="seats/selector.html :: seats"></th:block>
+            <input th:value="${sessionId}" name="session" type="hidden"/>
+            <input th:value="${tickets}" name="tickets" type="hidden"/>
+            <button type="submit" class="btn self-end mt-3 mr-1 md:mr-10">
+                Kinnita kohad
+            </button>
+        </form>
+    </div>
+    <script layout:fragment="script">
+        console.log("Loaded")
+        // Target all checkboxes on the page that are seats
+        var checkboxes = document.querySelectorAll('input[type="checkbox"].seat');
+        var checkedSeats = [];
+        // NOTE: This code relies on recommended seats
+        checkboxes.forEach(function(checkbox) {
+            // Collect all checked seats
+            if (checkbox.checked) {
+                checkedSeats.push(checkbox);
+            }
+            // Uncheck the oldest checkbox when a new one is checked
+            checkbox.addEventListener('change', function() {
+                console.log("clicked")
+                if (this.checked) {
+                    checkedSeats.shift().checked = false;
+                    checkedSeats.push(this);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!-- Seat element -->
+<label th:fragment="seat(row, column, disabled, checked)" th:aria-label="${row}+'-'+${column}">
+    <input th:disabled="${disabled}"
+           th:checked="${checked}"
+           th:value="${schedule.getSeadId(row, column)}"
+           name="seat"
+           type="checkbox"
+           class="seat"
+    >
+</label>
+<!-- Generate grid of seats -->
+<div th:fragment="seats">
+    <ol reversed>
+        <li th:each="r : ${#numbers.sequence(schedule.rows - 1, 0)}" class="row">
+            <th:block th:each="c : ${#numbers.sequence(0, schedule.columns - 1)}">
+                <th:block th:switch="${schedule.getSeat(r, c).name()}">
+                    <th:block th:case="'Reserved'">
+                        <label th:replace="~{::seat(row=${r}, column=${c}, disabled=true, checked=false)}"></label>
+                    </th:block>
+                    <th:block th:case="'Available'">
+                        <label th:replace="~{::seat(row=${r}, column=${c}, disabled=false, checked=false)}"></label>
+                    </th:block>
+                    <th:block th:case="'Checked'">
+                        <label th:replace="~{::seat(row=${r}, column=${c}, disabled=false, checked=true)}"></label>
+                    </th:block>
+                    <label th:case="'Invalid'">
+                        <input type="checkbox" class="seat">
+                    </label>
+                </th:block>
+            </th:block>
+        </li>
+    </ol>
+</div>
