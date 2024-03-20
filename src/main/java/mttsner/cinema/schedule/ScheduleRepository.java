@@ -12,11 +12,13 @@ import java.util.List;
 public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
     @Query("SELECT sch FROM Schedule sch " +
             "JOIN sch.movieId.genres genre " +
-            "WHERE CAST(sch.startTime as DATE) = :date " +
+            "WHERE sch.startTime >= NOW() " +
+            "AND CAST(sch.startTime as DATE) = :date " +
             "AND (:genres IS NULL OR genre IN :genres) " +
             "AND (:ages is NULL OR sch.movieId.ageRating IN :ages) " +
             "AND (:languages IS NULL OR sch.movieId.language IN :languages) " +
-            "AND (:times IS NULL OR FORMATDATETIME(sch.startTime, 'HH:mm')  IN :times)")
+            "AND (:times IS NULL OR FORMATDATETIME(sch.startTime, 'HH:mm')  IN :times) " +
+            "ORDER BY sch.startTime")
     List<Schedule> findByFilters(
             LocalDate date,
             List<Genre> genres,
@@ -25,6 +27,9 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
             List<String> times
     );
 
-    @Query("SELECT sch FROM Schedule sch WHERE CAST(sch.startTime as DATE) = :date")
+    @Query("SELECT sch FROM Schedule sch " +
+            "WHERE sch.startTime >= NOW() " +
+            "AND CAST(sch.startTime as DATE) = :date " +
+            "ORDER BY sch.startTime")
     List<Schedule> findByDate(LocalDate date);
 }
