@@ -15,7 +15,8 @@
 </div>
 <!-- Filter options -->
 <!-- NOTE: options must be in the same order as respective enum fields -->
-<form th:fragment="filter" hx-post="/filter" hx-trigger="change" hx-swap="outerHTML" hx-target="#schedule" class="w-full">
+<form th:fragment="filter" hx-post="/filter" hx-trigger="change" hx-swap="outerHTML" hx-target="#schedule" class="w-full" id="filter">
+    <th:block th:replace="~{schedule/recommend::recommend}"/>
     <th:block th:replace="~{schedule/days::days}"/>
     <div class="w-full bg-neutral-900 text-neutral-100 font-medium flex relative rounded-md text-xl">
     <th:block th:with="type=${T(mttsner.cinema.movies.Genre)}">

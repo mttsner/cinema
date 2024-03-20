@@ -15,5 +15,12 @@
         </div>
     </div>
 </div>
+<script layout:fragment="script">
+    document.getElementById('filter').addEventListener('htmx:beforeRequest', function (event) {
+        if (event.detail.requestConfig.parameters.history) {
+            event.detail.requestConfig.parameters.history = localStorage.getItem('history')
+        }
+    });
+</script>
 </body>
 </html>
