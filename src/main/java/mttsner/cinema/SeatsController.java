@@ -59,7 +59,7 @@ public class SeatsController {
 
     private int recommendSeats(List<SeatStatus> row, int needed) {
         // Split row in half
-        List<SeatStatus> firstHalf = row.subList(0, row.size() / 2);
+        List<SeatStatus> firstHalf = row.subList(0, row.size() / 2 + row.size() % 2);
         List<SeatStatus> secondHalf = row.subList(row.size() / 2, row.size());
         // Find best seats in each half
         int[] first = findSeats(firstHalf, needed);
