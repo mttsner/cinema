@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Kung Fu Panda 4",
+    "description": "Vapper Lohesõdalane, parajalt paks ja rõõmsameelne pandakaru Po, peab astuma vastu oma saatusele ning saama Rahuoru juhiks. Sellega on aga paar probleemi. Esiteks teab Po juhiks olemisest sama palju kui tervislikust toitumisest. Lisaks sellele peaks ta välja koolitama uue Lohesõdalase. Ning nagu sellest veel vähe oleks, on ilmunud välja eriti võimas ja samavõrd kuri nõid nimega Kameeleon, kes suudab võtta mistahes olendi kuju, olgu see kuitahes suur või väike. Kameeleon ihaldab Po valduses olevat Tarkuse saua, mis annaks talle võime kutsuda vaimuvallast tagasi kõik sinna toimetatud kurjamid, et nendega Rahuorg igaveseks oma võimu alla haarata. Abiks väledate käppadega vilgas varas Zhen, peab Po päästma saua, Rahuoru ja ka iseenda tuleviku. Paras ports ühele parajalt paksule pandale!",
+    "genres": ["Animation", "Action"],
+    "language": "Estonian",
+    "ageRating": "All"
+  },
+  {
+    "title": "Düün: teine osa",
+    "description": "Filmis “Düün: teine osa” jälgitakse Paul Atreidese müütilist teekonda, kui ta asub ühes Chani ja fremenitega ta perele hävingut toonud vandenõulastele kätte maksma. Paulil tuleb valida oma elu armastuse ja teadaoleva universumi saatuse vahel ning hoida ära kohutav tulevik, mida ainult tema ette näeb.",
+    "genres": ["Action", "Drama"],
+    "language": "English",
+    "ageRating": "Above12"
+  },
+  {
+    "title": "Koer Arthur",
+    "description": "Seiklussportlase Michael Lighti (Mark Wahlberg) ja kasimata hulkuva koera Arthuri vahel tekib kümne päevaga läbitud 700 kilomeetri vältel murdumatu side. Uskumatul tõsielulool põhinev “KOER ARTHUR” räägib Lightist, kes ihkab meeleheitlikult veel viimast korda võita ning üritab leida endale ja sportlaste tiimile (Simu Liu, Nathalie Emmanuel ja Ali Suliman) sponsorit Dominikaani Vabariigis toimuvatele seiklusspordi maailmavõistlustele. Tiimil tuleb kestusvõistlustel endast kõik anda ning Arthur saab võidu, truuduse ja sõpruse tõelise tähenduse teada.",
+    "genres": ["Action"],
+    "language": "English",
+    "ageRating": "Above12"
+  },
+  {
+    "title": "Emainstinkt",
+    "description": "Oscari-võitjad Jessica Chastain ja Anne Hathaway mängivad selles pinevas psühholoogilises trilleris Alice’it (Chastain) ja Celine’i (Hathaway) - kahte idüllilist äärelinna elu nautlevat pereema ja parimat sõbrannat. Nende idüll saab purustava lõpu, kui ühe naise poeg hukkub traagilise õnnetuse tagajärjel. Naiste suhetesse hakkavad tekkima vaikselt mõrad ning meeltesse süütunne ja paranoia. Kui kahe naise ellu on jäänud vaid üks laps, siis paljastuvad emainstinktide tumedaimad pooled. Lisaks Chastainile ja Hathawayle teevad filmis nende meeste rollides kaasa Anders Danielsen Lie (“Worst Person in the World”) ja Josh Charles (“The Good Wife”)",
+    "genres": ["Drama", "Horror"],
+    "language": "English",
+    "ageRating": "Above14"
+  },
+  {
+    "title": "Langemise anatoomia",
+    "description": "Õnnetus? Enesetapp? Mõrv? Need on kolm versiooni tõest kohtuasjas, mis tegeleb kirjanik Samueli (Samuel Theis) kahtlaste asjaoludega surmaga idüllilises kodus Prantsuse Alpides. Süüdistus esitatakse Samueli samuti kirjanikust abikaasale Sandrale (Sandra Hüller) ning järgneva kohtuprotsessi käigus kistakse päevavalgele paari keerulised suhted ja lahatakse mikroskoobi all nii nende abielu kui ka naise isiksust ja minevikku. Juhtunu ainsaks arvestatavaks tunnistajaks on abielupaari nägemispuudega poeg Daniel (Milo Machado Graner), kes antud olukorras moraalse dilemma ette seatakse.",
+    "genres": ["Drama", "Horror"],
+    "language": "English",
+    "ageRating": "Above14"
+  },
+  {
+    "title": "Pardid!",
+    "description": "Ühes väikeses tiigis elav sinikael-partide pere on omadega parajas puntras. Isa Mack tahab, et nad püsiks kogu elu oma kodutiigis, sest selle piires on tal tunne, et ta suudab oma lähedasi kaitsta. Ema Pam sooviks aga pakkuda nende lastele uusi elamusi ja näidata, et väljaspool tillukest tiiki laiub suur ja põnev maailm. Pärast kokkupuudet lõunasse talvituma lendava partide parvega, kes nende tiigis vahemaandumise teevad, saab ülejäänud pere kartliku pardipapa nõusse: talveks New Yorgi kaudu päikeselisele Jamaicale! Sellest algab pöörane seiklus, mis laiendab nende silmaringi, sunnib lahendama võimatuna näivaid ülesandeid, toob uusi sõpru ja saavutusi, mida keegi neist poleks varem uneski näinud.",
+    "genres": ["Comedy", "Action", "Animation"],
+    "language": "Estonian",
+    "ageRating": "All"
+  }
+]
