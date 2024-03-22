@@ -24,7 +24,7 @@
                         <label th:replace="~{::seat(row=${r}, column=${c}, disabled=false, checked=true)}"></label>
                     </th:block>
                     <label th:case="'Invalid'">
-                        <input type="checkbox" class="seat">
+                        <input disabled type="checkbox" class="seat invisible">
                     </label>
                 </th:block>
             </th:block>
