@@ -44,7 +44,7 @@ public class GenerateExampleData implements ApplicationRunner {
             Schedule schedule = new Schedule();
             schedule.setStartTime(time.withHour(i));
             // Pick random movie for the schedule item
-            schedule.setMovieId(movies.get(rng.nextInt(movies.size())));
+            schedule.setMovie(movies.get(rng.nextInt(movies.size())));
             // Generate random reserved seats in a random hall
             generateSeating(schedule);
             // Save schedule item to db

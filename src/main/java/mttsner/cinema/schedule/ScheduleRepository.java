@@ -11,12 +11,12 @@ import java.util.List;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
     @Query("SELECT sch FROM Schedule sch " +
-            "JOIN sch.movieId.genres genre " +
+            "JOIN sch.movie.genres genre " +
             "WHERE sch.startTime >= NOW() " +
             "AND CAST(sch.startTime as DATE) = :date " +
             "AND (:genres IS NULL OR genre IN :genres) " +
-            "AND (:ages is NULL OR sch.movieId.ageRating IN :ages) " +
-            "AND (:languages IS NULL OR sch.movieId.language IN :languages) " +
+            "AND (:ages is NULL OR sch.movie.ageRating IN :ages) " +
+            "AND (:languages IS NULL OR sch.movie.language IN :languages) " +
             "AND (:times IS NULL OR FORMATDATETIME(sch.startTime, 'HH:mm')  IN :times) " +
             "ORDER BY sch.startTime")
     List<Schedule> findByFilters(

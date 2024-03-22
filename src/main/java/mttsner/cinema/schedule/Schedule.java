@@ -31,7 +31,7 @@ public class Schedule {
 
     @ManyToOne()
     @JoinColumn(name = "movie_id", nullable = false)
-    private Movie movieId;
+    private Movie movie;
 
     @Column(nullable = false)
     private Integer Rows;

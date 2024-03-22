@@ -51,7 +51,7 @@ public class HomeController {
         // Update schedule in the database
         scheduleRepository.save(schedule);
         // Redirect to the main page
-        model.addAttribute("movieId", schedule.getMovieId().getMovieId());
+        model.addAttribute("movieId", schedule.getMovie().getMovieId());
         return "buy/index";
     }
 }

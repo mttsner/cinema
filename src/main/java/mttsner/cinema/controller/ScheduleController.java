@@ -64,7 +64,7 @@ public class ScheduleController {
         // Recommend based on history of watched movies
         Recommend recommend = new Recommend(movies);
         // Custom function used for sorting
-        Comparator<Schedule> comparator = Comparator.comparing(schedule -> recommend.getScore(schedule.getMovieId()));
+        Comparator<Schedule> comparator = Comparator.comparing(schedule -> recommend.getScore(schedule.getMovie()));
         // Sort schedule items based on recommendation score
         schedules.sort(comparator);
         // Render the schedule items
