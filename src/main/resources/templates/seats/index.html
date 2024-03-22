@@ -17,7 +17,6 @@
         </form>
     </div>
     <script layout:fragment="script">
-        console.log("Loaded")
         // Target all checkboxes on the page that are seats
         var checkboxes = document.querySelectorAll('input[type="checkbox"].seat');
         var checkedSeats = [];
@@ -27,9 +26,14 @@
             if (checkbox.checked) {
                 checkedSeats.push(checkbox);
             }
+            // Prevent already checked checkboxes to be unchecked
+            checkbox.addEventListener('click', function (event) {
+                if (checkedSeats.includes(this)) {
+                    event.preventDefault()
+                }
+            })
             // Uncheck the oldest checkbox when a new one is checked
             checkbox.addEventListener('change', function() {
-                console.log("clicked")
                 if (this.checked) {
                     checkedSeats.shift().checked = false;
                     checkedSeats.push(this);
