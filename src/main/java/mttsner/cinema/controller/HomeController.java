@@ -32,6 +32,9 @@ public class HomeController {
 
     @PostMapping("/buy")
     public String buy(@RequestParam Integer session,
+                      @RequestParam Integer adult,
+                      @RequestParam Integer student,
+                      @RequestParam Integer child,
                       @RequestParam int[] seat,
                       Model model) {
         Schedule schedule = scheduleRepository.findById(session).orElseThrow();
@@ -52,6 +55,9 @@ public class HomeController {
         scheduleRepository.save(schedule);
         // Redirect to the main page
         model.addAttribute("movieId", schedule.getMovie().getMovieId());
+        model.addAttribute("adult", adult);
+        model.addAttribute("student", student);
+        model.addAttribute("child", child);
         return "buy/index";
     }
 }

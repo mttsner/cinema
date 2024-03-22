@@ -1,0 +1,5 @@
+<div th:fragment="ticket(name, price, count)" class="flex items-center pb-0.5 pt-0.5" >
+    <div class="text-2xl p-3 mr-auto" th:text="${name}">Ticket name</div>
+    <div class="text-xl font-medium tracking-tight m-4" th:text="${price}">0.00€</div>
+    <div class="text-xl m-3 px-4 py-2 appearance-none text-center bg-neutral-100 border-0 rounded-md" th:text="${count}">0</div>
+</div>

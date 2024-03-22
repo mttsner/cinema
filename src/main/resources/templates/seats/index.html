@@ -8,8 +8,12 @@
     <div layout:fragment="content" class="flex items-center flex-col">
         <form action="/buy" method="post" class="flex flex-col">
             <th:block th:replace="seats/selector.html :: seats"></th:block>
+            <!-- Hidden fields to persist state -->
             <input th:value="${sessionId}" name="session" type="hidden"/>
             <input th:value="${tickets}" name="tickets" type="hidden"/>
+            <input th:value="${adult}" name="adult" type="hidden"/>
+            <input th:value="${student}" name="student" type="hidden"/>
+            <input th:value="${child}" name="child" type="hidden"/>
             <button type="submit" class="btn self-end mt-3 mr-1 md:mr-10">
                 Kinnita kohad
             </button>

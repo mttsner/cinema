@@ -34,6 +34,9 @@ public class SeatsController {
         // Send attributes to thymeleaf
         model.addAttribute("schedule", schedule);
         model.addAttribute("sessionId", session);
+        model.addAttribute("adult", adult);
+        model.addAttribute("student", student);
+        model.addAttribute("child", child);
         return "seats/index";
     }
 
