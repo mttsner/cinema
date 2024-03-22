@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Schedule</title>
+</head>
+<body>
+<div layout:fragment="content" class="flex flex-col items-center">
+    <div class="text-9xl">
+        Pilet ostetud!
+    </div>
+</div>
+<script layout:fragment="script">
+    var watchHistory = localStorage.getItem('watch-history')
+    if (!watchHistory) {
+        localStorage.setItem('watch-history', '[[ ${movieId} ]]')
+    } else {
+        localStorage.setItem('watch-history', watchHistory+','+'[[ ${movieId} ]]')
+    }
+</script>
+</body>
+</html>

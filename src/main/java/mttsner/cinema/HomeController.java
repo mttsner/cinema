@@ -38,7 +38,8 @@ public class HomeController {
 
     @PostMapping("/buy")
     public String buy(@RequestParam Integer session,
-                      @RequestParam int[] seat) {
+                      @RequestParam int[] seat,
+                      Model model) {
         Schedule schedule = scheduleRepository.findById(session).orElseThrow();
         List<SeatStatus> seats = schedule.getSeats();
         // Add bought seats
@@ -56,6 +57,7 @@ public class HomeController {
         // Update schedule in the database
         scheduleRepository.save(schedule);
         // Redirect to the main page
-        return "redirect:/schedule";
+        model.addAttribute("movieId", schedule.getMovieId().getMovieId());
+        return "buy/index";
     }
 }
