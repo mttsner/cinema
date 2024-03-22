@@ -1,6 +1,6 @@
 <div th:fragment="movieCard(movie, event)" class="my-2 overflow-hidden rounded-lg border shadow-sm">
     <div class="grid grid-cols-3 h-40 bg-neutral-50">
-        <img th:src="${movie.getMovieId()}+'.jpg'" class="bg-amber-400 h-full w-full object-cover hidden sm:block" alt="movie poster"></img>
+        <img th:src="${movie.getMovieId()}+'.jpg'" class="h-40 w-full object-cover hidden sm:block" alt="movie poster"></img>
         <div class="flex flex-col m-3 pr-1 mr-2 overflow-y-scroll col-span-3 sm:col-span-2 gap-1">
             <h3 th:text="${movie.title}" class="text-2xl font-semibold tracking-tight whitespace-nowrap">Title</h3>
             <p th:text="${movie.description}" class="text-sm">Description</p>
