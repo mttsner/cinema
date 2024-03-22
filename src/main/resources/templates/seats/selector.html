@@ -2,7 +2,7 @@
 <label th:fragment="seat(row, column, disabled, checked)" th:aria-label="${row}+'-'+${column}">
     <input th:disabled="${disabled}"
            th:checked="${checked}"
-           th:value="${schedule.getSeadId(row, column)}"
+           th:value="${schedule.getSeatId(row, column)}"
            name="seat"
            type="checkbox"
            class="seat"
