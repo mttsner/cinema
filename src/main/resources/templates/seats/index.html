@@ -7,7 +7,7 @@
 <body>
     <div layout:fragment="content" class="flex items-center flex-col">
         <form action="/buy" method="post" class="flex flex-col">
-            <th:block th:replace="seats/selector.html :: seats"></th:block>
+            <th:block th:replace="~{seats/selector.html :: seats}"></th:block>
             <!-- Hidden fields to persist state -->
             <input th:value="${sessionId}" name="session" type="hidden"/>
             <input th:value="${tickets}" name="tickets" type="hidden"/>
