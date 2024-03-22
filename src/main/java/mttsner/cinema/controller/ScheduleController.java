@@ -70,7 +70,7 @@ public class ScheduleController {
         // Custom function used for sorting
         Comparator<Schedule> comparator = Comparator.comparing(schedule -> recommend.getScore(schedule.getMovie()));
         // Sort schedule items based on recommendation score
-        schedules.sort(comparator);
+        schedules.sort(comparator.reversed());
         // Render the schedule items
         model.addAttribute("schedule", schedules);
         return "schedule/index::items";
