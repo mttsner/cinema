@@ -1,3 +1,4 @@
+<!-- Bar used to navigate between schedule and recommended -->
 <div th:fragment="recommend" class="w-full overflow-hidden my-1 bg-neutral-900 text-neutral-100 font-medium flex relative rounded-md text-xl">
     <label class="w-full p-1.5 has-[:checked]:text-red-500 text-2xl font-semibold flex justify-center hover:bg-neutral-800 transition-colors">
         <input checked type="radio" class="hidden" name="history" value="">
@@ -7,4 +8,8 @@
         <input type="radio" class="hidden" name="history">
         Soovitused
     </label>
+</div>
+<!-- Error shown when schedule items cannot be recommended due to no history -->
+<div th:fragment="error" id="schedule" class="w-full mt-5 p-2 text-2xl font-medium">
+    Teil puudub vaadatud filmide ajalugu!
 </div>

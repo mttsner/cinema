@@ -51,14 +51,18 @@ public class ScheduleController {
                          @RequestParam(required = false) List<AgeRating> ages,
                          @RequestParam(required = false) List<Language> languages,
                          @RequestParam(required = false) List<String> times,
-                         @RequestParam List<Integer> history,
+                         @RequestParam(required = false) List<Integer> history,
                          @RequestParam LocalDate date,
                          Model model) {
         List<Schedule> schedules = scheduleRepository.findByFilters(date, genres, ages, languages, times);
         // If no history is provided, don't run the recommendation algorithm
-        if (history.isEmpty()) {
+        if (history == null) {
             model.addAttribute("schedule", schedules);
             return "schedule/index::items";
+        }
+        // If history is empty, show user error
+        if (history.isEmpty()) {
+            return "schedule/recommend::error";
         }
         List<Movie> movies = movieRepository.findAllById(history);
         // Recommend based on history of watched movies
