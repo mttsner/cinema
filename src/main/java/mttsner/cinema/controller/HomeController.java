@@ -1,9 +1,5 @@
 package mttsner.cinema.controller;
 
-import mttsner.cinema.movies.AgeRating;
-import mttsner.cinema.movies.Genre;
-import mttsner.cinema.movies.Language;
-import mttsner.cinema.movies.Movie;
 import mttsner.cinema.schedule.Schedule;
 import mttsner.cinema.schedule.ScheduleRepository;
 import mttsner.cinema.schedule.SeatStatus;
@@ -16,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Controller

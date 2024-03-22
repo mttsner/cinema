@@ -5,9 +5,7 @@ spring:
     username: ${JDBC_DATABASE_USERNAME:sa}
     password: ${JDBC_DATABASE_PASSWORD:}
     dbcp2:
-      max-wait-millis: 30000
       validation-query: select 1
-      validation-query-timeout: 30
   jpa:
     hibernate:
       ddl-auto: update
