@@ -10,7 +10,7 @@
         <th:block th:replace="~{schedule/filter.html :: filter}"></th:block>
         <div th:fragment="items" id="schedule" class="w-full">
             <th:block th:each="event: ${schedule}">
-                <th:block th:replace="components/card.html :: movieCard(movie=${event.movieId}, event=${event})"/>
+                <th:block th:replace="schedule/card.html :: movieCard(movie=${event.movieId}, event=${event})"/>
             </th:block>
         </div>
     </div>

@@ -1,4 +1,4 @@
-package mttsner.cinema;
+package mttsner.cinema.controller;
 
 import mttsner.cinema.movies.AgeRating;
 import mttsner.cinema.movies.Genre;
@@ -33,7 +33,7 @@ public class HomeController {
     @GetMapping("/tickets")
     public String tickets(@RequestParam Integer session, Model model) {
         model.addAttribute("event", session);
-        return "home/tickets";
+        return "tickets/index";
     }
 
     @PostMapping("/buy")

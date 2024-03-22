@@ -10,9 +10,9 @@
     <h1 class="grow text-3xl md:text-4xl font-medium mb-8">Vali piletid</h1>
     <form action="/seats" method="get" class="max-w-prose w-full flex flex-col">
         <div class="grid divide-y">
-            <th:block th:replace="components/ticket.html :: ticket(name='Tavapilet', type='adult', price='9.99 €')"/>
-            <th:block th:replace="components/ticket.html :: ticket(name='Õpilasepilet', type='student', price='7.99 €')"/>
-            <th:block th:replace="components/ticket.html :: ticket(name='Lapsepilet', type='child', price='5.99 €')"/>
+            <th:block th:replace="tickets/ticket.html :: ticket(name='Tavapilet', type='adult', price='9.99 €')"/>
+            <th:block th:replace="tickets/ticket.html :: ticket(name='Õpilasepilet', type='student', price='7.99 €')"/>
+            <th:block th:replace="tickets/ticket.html :: ticket(name='Lapsepilet', type='child', price='5.99 €')"/>
         </div>
         <input th:value="${event}" name="session" type="hidden"/> <!--Persist session for the next page-->
         <button type="submit" class="btn self-end mr-0 mt-4">

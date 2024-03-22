@@ -1,4 +1,4 @@
-package mttsner.cinema;
+package mttsner.cinema.controller;
 
 import mttsner.cinema.schedule.Schedule;
 import mttsner.cinema.schedule.ScheduleRepository;

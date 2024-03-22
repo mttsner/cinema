@@ -1,4 +1,4 @@
-package mttsner.cinema;
+package mttsner.cinema.util;
 
 import mttsner.cinema.movies.AgeRating;
 import mttsner.cinema.movies.Genre;
