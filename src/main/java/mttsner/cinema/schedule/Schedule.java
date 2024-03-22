@@ -24,7 +24,7 @@ public class Schedule {
     private OffsetDateTime startTime;
 
     @Column(nullable = false)
-    private String maxSeats;
+    private Integer maxSeats;
 
     @Column(nullable = false)
     private Integer freeSeats;
@@ -46,15 +46,15 @@ public class Schedule {
     @Version
     private Long version;
 
-    public int getSeadId(int row, int column) {
+    public int getSeatId(int row, int column) {
         return row * this.Columns + column;
     }
 
     public SeatStatus getSeat(int row, int column) {
-        return this.seats.get(getSeadId(row, column));
+        return this.seats.get(getSeatId(row, column));
     }
 
     public void setSeat(int row, int column, SeatStatus status) {
-        this.seats.set(getSeadId(row, column), status);
+        this.seats.set(getSeatId(row, column), status);
     }
 }
